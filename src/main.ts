@@ -5,14 +5,14 @@ import { styleMap } from "lit/directives/style-map.js";
 
 @customElement("sahbaee-slider")
 export class sahbaeeSlider extends LitElement {
-  protected active_holder = 2;
-  protected progress = 2;
-
   @state()
   private items: Array<number> = [];
 
   @property({ type: String })
   forward_btn: string = "forward_btn";
+
+  @property({ type: Number })
+  start: number = 1;
 
   @property({ type: String })
   backward_btn: string = "backward_btn";
@@ -88,7 +88,7 @@ export class sahbaeeSlider extends LitElement {
         <div
           class="sp_bar_bar"
           style="${styleMap({
-            width: (100 / (this.point - 1)) * (this.progress - 1) + "%",
+            width: (100 / (this.point - 1)) * (this.start - 1) + "%",
           })}"
         ></div>
       </div>
@@ -98,7 +98,7 @@ export class sahbaeeSlider extends LitElement {
           (item) => html`
             <div
               class="sp_holder"
-              sp_holder="${item <= this.progress ? "true" : "false"}"
+              sp_holder="${item <= this.start ? "true" : "false"}"
             >
               ${item}
             </div>
@@ -113,16 +113,16 @@ export class sahbaeeSlider extends LitElement {
     document
       .querySelector(`[sahbaee_slider_forward="${this.forward_btn}"]`)
       ?.addEventListener("click", () => {
-        if (this.progress < this.items.length) {
-          this.progress++;
+        if (this.start < this.items.length) {
+          this.start++;
           this.requestUpdate("state", this.render());
         }
       });
     document
       .querySelector(`[sahbaee_slider_backward="${this.backward_btn}"]`)
       ?.addEventListener("click", () => {
-        if (1 < this.progress) {
-          this.progress--;
+        if (1 < this.start) {
+          this.start--;
           this.requestUpdate("state", this.render());
         }
       });
