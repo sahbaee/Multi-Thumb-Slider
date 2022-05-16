@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "lit": "^2.2.3"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.31",
+    "esbuild": "^0.14.38",
+    "tsc": "^2.0.4",
+    "typescript": "^4.6.4"
+  },
+  "scripts": {
+    "serve": "wds --watch",
+    "build": "node esbuild.config.js"
+  },
+  "name": "multi-thumb-slider",
+  "description": "The Multi Thumb Slider Lit component",
+  "repository": "https://github.com/sahbaee/Multi-Thumb-Slider/",
+  "author": "Mahdiyar Sahbaee <mahdiyar.sahbaee@gmail.com> (https://sahbaee.github.io)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
