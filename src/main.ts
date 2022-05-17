@@ -115,7 +115,7 @@ export class sahbaeeSlider extends LitElement {
       ?.addEventListener("click", () => {
         if (this.start < this.items.length) {
           this.start++;
-          this.requestUpdate("state", this.render());
+          this.requestUpdate();
         }
       });
     document
@@ -123,7 +123,7 @@ export class sahbaeeSlider extends LitElement {
       ?.addEventListener("click", () => {
         if (1 < this.start) {
           this.start--;
-          this.requestUpdate("state", this.render());
+          this.requestUpdate();
         }
       });
   }
@@ -134,7 +134,7 @@ export class sahbaeeSlider extends LitElement {
     for (let i = 0; i < this.point; i++) {
       this.items.push(i + 1);
     }
-    this.requestUpdate("state", this.render());
+    this.requestUpdate();
   }
 
   firstUpdated() {
